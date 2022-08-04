@@ -1,0 +1,17 @@
+{%extends 'examapp/base.html'%}
+
+{%block body_content%}
+    <form method="post">
+        {%csrf_token%}
+        <center>
+            <table>
+                {{myform.as_table}}
+            </table>
+            <input type="submit" value="Save"/>
+            <button id="btnTest" name="sanjeev">testing Jquery</button>
+        </center>
+
+        
+
+    </form>
+{%endblock%}

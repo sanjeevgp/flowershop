@@ -1,0 +1,47 @@
+{%extends 'examapp/base.html'%}
+{%block body_content%}
+    <form method="post">
+        {%csrf_token%}
+        <center>
+            <table style="width:60%" class ="table table-striped">    
+<thead class="thead-dark">
+                <tr>
+                    <th>
+                    Question Type
+                    
+                    </th>
+
+                    <th>
+                    Questions
+                    
+                    </th>
+                    
+                    <th>
+                    Subject
+                    
+                    </th>
+
+                    <th>Edit</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+            
+                {% for item in listquestions%}
+            
+<tr>
+
+    <td>{{item.QuestionType}}</td>
+    <td>{{item.Questions}}</td>
+    <td>{{item.Subject}}</td>
+    <td><a class="btn btn-danger" href="{% url 'EditQuestion' sanjeev=item.QuestionId %}">Edit</a></td>
+   
+</tr>
+{%endfor%}
+
+</tbody>
+            </table>
+        </center>
+
+{%endblock%}

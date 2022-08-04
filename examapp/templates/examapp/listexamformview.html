@@ -1,0 +1,59 @@
+{%extends 'examapp/base.html'%}
+{%block body_content%}
+    <form method="post">
+        {%csrf_token%}
+        <center>
+            <table style="width:60%" class ="table table-striped">    
+<thead class="thead-dark">
+                <tr>
+                    <th>
+                    ExamName
+                    
+                    </th>
+                    <th>
+
+                        Exam Type
+                    </th>
+
+                    <th>
+                        Exam Year
+                    </th>
+                    <th>
+                        Duration(in hrs)
+                    </th>
+                    <th>
+                        ExamDate
+                    </th>
+
+                    <th>Edit</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in listexam%}
+
+<tr>
+
+    <td>{{item.ExamName}}</td>
+
+    <td>{% if item.ExamType == "1" %}
+        Multiple Choice
+        {%elif item.ExamType == "2" %}
+        Descriptive
+        {%else%}
+        CompAidedExam
+
+        {% endif %}</td>
+    <td>{{item.ExamYear}}</td>
+    <td>{{item.ExamDuration}}</td>
+    <td>{{item.ExamDate}}</td>
+    <td><a class="btn btn-danger" href="{% url 'EditExamFrm' examId=item.ExamId %}">Edit</a></td>
+
+</tr>
+{%endfor%}
+
+</tbody>
+            </table>
+        </center>
+
+{%endblock%}

@@ -1,0 +1,14 @@
+{%extends 'examapp/base.html'%}
+
+{%block body_content%}
+    <form method="post">
+        {%csrf_token%}
+        <center>
+            <table>
+                {{questionForm.as_table}}
+            </table>
+            <input type="submit" value="Save"/>
+
+        </center>
+    </form>
+{%endblock%}

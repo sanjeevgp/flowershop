@@ -1,0 +1,19 @@
+{%extends 'examapp/base.html'%}
+
+{%block body_content%}
+    <form method="post">
+        {%csrf_token%}
+        <center>
+            <table>
+                {{subjectForm.as_table}}
+                
+            </table>
+            <input type="submit" value="Save"/>
+            
+        </center>
+    
+        <center>{{Successfullmsg}}</center>
+        
+
+    </form>
+{%endblock%}

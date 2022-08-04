@@ -1,0 +1,91 @@
+{%extends 'examapp/base.html'%}
+{%block body_content%}
+    <form method="post">
+        {%csrf_token%}
+        <center>
+
+            <div class="container"> 
+                    <div style="display:flex; align-items: center;justify-content: center;border:1px solid black;border-radius: 10px;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                     <label>Subject</label>
+                                </div>
+
+
+                                 <div class="col-md-3">
+
+                                    <select name="subject" id="drpsubject" class="sanjeev">
+                                        
+                                        <option value="0">select subject</option>
+                                        {%for item in subjectlist%}
+                                        <option value="{{item.SubjectId}}">{{item.subject}}</option>
+
+                                        {%endfor%}
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                     <label>Exam Type</label>
+                                </div>
+
+
+                                 <div class="col-md-3">
+
+                                    <select name="examtype" id="drpexamtype">
+                                        <option value="0">select Type</option>
+                                        <option value="1">Descriptive</option>
+                                        <option value="2">Multiple Choice</option>
+                                        <option value="3">CompAidedExam</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                     <label>Questions</label>
+                                </div>
+
+
+                                 <div class="col-md-10">
+
+                                    <select name="Questions" id="drpquestions" style="width: 300px;">
+                                        <option value="0">select questions</option>
+                                        <option value="1">Father of Computer</option>
+                                        <option value="2">What are the elements in H2O</option>
+                                        <option value="3">Who is the father of Chemistry</option>
+                                    </select>
+                                </div>
+                                
+                            </div>
+                    </div>
+<br/>
+
+                    <div style="display:flex; align-items: center;justify-content: center;border:1px solid black;border-radius: 10px;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                 <label>Options</label>
+                            </div>
+
+                            
+                             <div class="col-md-5">
+                                <div class="row">
+                                <input style="margin-bottom: 3px;" type="text" name="option1"/><input id="option1" type="radio" name="answer" value="1"> <br/>
+                                <input style="margin-bottom: 3px;" type="text" name="option2"/><input id="option2" type="radio" name="answer" value="2"><br/>
+                                <input style="margin-bottom: 3px;" type="text" name="option3"/><input id="option3" type="radio" name="answer" value="3"><br/>
+                                <input style="margin-bottom: 3px;" type="text" name="option4"/><input id="option4" type="radio" name="answer" value="4"><br/>
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+            <div>
+<!-- <!<input type="radio" /> -->
+<!-- <input type="checkbox" />
+<input type="date" /> -->
+
+            </div>
+            <input type="submit" value="Save Options" /> 
+        </center>
+
+{%endblock%}

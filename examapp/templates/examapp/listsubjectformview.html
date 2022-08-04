@@ -1,0 +1,36 @@
+{%extends 'examapp/base.html'%}
+{%block body_content%}
+    <form method="post">
+        {%csrf_token%}
+        <center>
+            <table style="width:60%" class ="table table-striped">    
+<thead class="thead-dark">
+                <tr>
+                    <th>
+                    Subject Name
+                    
+                    </th>
+                    
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in listsubject%}
+
+<tr>
+
+    <td>{{item.subject}}</td>
+
+    <td><a class="btn btn-danger" href="{% url 'EditSubject' subjectId=item.SubjectId %}">Edit</a></td>
+    <td><a class="btn btn-danger" href="{% url 'DeleteSubject' subjectId=item.SubjectId %}">Delete</a></td>
+
+</tr>
+{%endfor%}
+
+</tbody>
+            </table>
+        </center>
+
+{%endblock%}

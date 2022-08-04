@@ -1,0 +1,54 @@
+{%extends 'examapp/base.html'%}
+
+{%block body_content%}
+    <form method="post">
+        {%csrf_token%}
+        <center>
+            {{Message}}
+            <table>
+               <input type="text" name="SubjectName">
+               <input type="submit" value="search">
+               
+            </table>
+            <table style="width:60%" class ="table table-striped">    
+                <thead class="thead-dark">
+                                <tr>
+                                    <th>
+                                    Question Type
+                                    
+                                    </th>
+                
+                                    <th>
+                                    Questions
+                                    
+                                    </th>
+                                    
+                                    <th>
+                                    Subject
+                                    
+                                    </th>
+                
+                                    <th>Edit</th>
+                
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                            
+                                {% for item in listquestion%}
+                            
+                <tr>
+                
+                    <td>{{item.QuestionType}}</td>
+                    <td>{{item.Questions}}</td>
+                    <td>{{item.Subject}}</td>
+                    
+                   
+                </tr>
+                {%endfor%}
+                
+                </tbody>
+                            </table>
+        </center>
+    </form>
+{%endblock%}

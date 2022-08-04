@@ -1,0 +1,76 @@
+{%extends 'examapp/base.html'%}
+{%block body_content%}
+    <form method="post">
+        {%csrf_token%}
+        <center>
+
+            <div class="container"> 
+                <div style="display:flex;box-shadow: 0 4px 8px 0 rgba(245, 10, 10, 0.2), 0 6px 20px 0 rgba(175, 16, 16, 0.19);background-image: linear-gradient(to right,red, yellow); font-weight: bold; align-items: center;justify-content: center;border:2px solid black;border-radius: 10px;">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <label>Exams</label>
+                           </div>
+
+
+                            <div class="col-md-2">
+
+                               <select name="exam" id="drpexam" class="exams">
+                                   
+                                   <option value="0">select Exam</option>
+                                   {%for item in examlist%}
+                                   <option value="{{item.ExamId}}">{{item.ExamName}}</option>
+
+                                   {%endfor%}
+
+                               </select>                             
+                           
+                            </div>
+                            <div class="col-md-1">
+                                <label>Subject</label>
+                                
+                            </div>
+                            <div class="col-md-3">
+
+                                <select name="Subject" id="drpsubject" class="subjects">
+                                    
+                                    <option value="0">select Subject</option>
+                                    {%for item in subjectlist%}
+                                    <option value="{{item.SubjectId}}">{{item.subject}}</option>
+ 
+                                    {%endfor%}
+ 
+                                </select>                             
+                            
+                             </div>
+
+
+                        
+                            <div class="col-md-2">
+                                 <label>Exam Type</label>
+                            </div>
+
+
+                             <div class="col-md-3">
+
+                                <select name="examtypenew" id="drpexamtypenew">
+                                    <option value="0">select Type</option>
+                                    <option value="Descriptive">Descriptive</option>
+                                    <option value="Multiple Choice">Multiple Choice</option>
+                                    <option value="CompAidedExam">CompAidedExam</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" id="selquestions" value="1,6,9"/>
+                        <input style="font-weight:bold" type="button" value="Show Questions" id="btnshowqns" /> 
+                    </div>
+            </div>
+<ul style='list-style: none;margin-top: 10px;'id="ulQuestionlist"></ul>
+
+        <input style="font-weight:bold;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" type="submit" value="Save QuestionPaper" />
+
+        </center>
+    </form>
+
+
+
+{%endblock%}
